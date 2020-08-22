@@ -1,0 +1,27 @@
+title: haudraufhaun.github.io
+# email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  This is the website of haudraufhaun. It's actually in development so please stay tuned for new changes!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://haudraufhaun.github.io/en/" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username:
+github_username: HAUDRAUFHAUN
+
+
+# Build settings
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+# pagination config
+paginate: 10
+paginate_path: "/blog/:id/"
+
+# markdown settings
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  input: GFM
+  auto_ids: false
+  toc_levels: 1..3

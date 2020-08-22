@@ -1,0 +1,125 @@
+<nav class="navbar is-light">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      haudraufhaun
+    </a>
+    <div
+      class="navbar-burger burger"
+      data-target="navbarExampleTransparentExample"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">
+        Home
+      </a>
+      <a class="navbar-item" href="/en/blog/">
+        Blog
+      </a>
+      <a class="navbar-item" href="/en/portfolio/">
+        Portfolio
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Docs
+        </a>
+
+        <div class="navbar-dropdown">
+          <a href="/wlke/" class="navbar-item">
+            wlke
+          </a>
+          <a href="/simple-blog-react/" class="navbar-item">
+            simle-blog-react
+          </a>
+          <hr class="navbar-divider" />
+          <a
+            href="https://github.com/HAUDRAUFHAUN/HAUDRAUFHAUN.github.io/issues"
+            class="navbar-item"
+          >
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <a href="/en/contact/" class="navbar-item">
+        Contact
+      </a>
+    </div>
+  </div>
+</nav>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", () => {
+    let navbarBurger = document.querySelector(".navbar-burger");
+    let navbarMenu = document.querySelector(".navbar-menu");
+    if (navbarBurger && navbarMenu) {
+      navbarBurger.addEventListener("click", function () {
+        navbarBurger.classList.toggle("is-active");
+        if (navbarBurger.classList.contains("is-active")) {
+          navbarMenu.style.display = "block";
+          if (navbarMenu.querySelectorAll("a[href]")) {
+            [].forEach.call(navbarMenu.querySelectorAll("a[href]"), function (
+              navURL
+            ) {
+              navURL.addEventListener("click", function () {
+                navbarMenu.style.display = "none";
+                navbarBurger.classList.remove("is-active");
+              });
+            });
+          }
+        } else navbarMenu.style.display = "none";
+      });
+    }
+    if (document.querySelectorAll(".navbar-dropdown")) {
+      [].forEach.call(document.querySelectorAll(".navbar-dropdown"), function (
+        elDrop
+      ) {
+        elDrop.style.display = "none";
+      });
+    }
+    if (document.querySelectorAll(".navbar-link")) {
+      [].forEach.call(document.querySelectorAll(".navbar-link"), function (
+        elLink
+      ) {
+        if (elLink.classList.contains("is-active"))
+          elLink.classList.toggle("is-active");
+        if (
+          elLink.nextElementSibling.classList.contains("navbar-dropdown") &&
+          elLink.nextElementSibling.hasChildNodes()
+        ) {
+          elLink.addEventListener("click", function () {
+            elLink.classList.toggle("is-active");
+            if (
+              elLink.classList.contains("is-active") &&
+              elLink.nextElementSibling.style.display === "none"
+            )
+              elLink.nextElementSibling.style.display = "block";
+            else if (
+              !elLink.classList.contains("is-active") &&
+              elLink.nextElementSibling.style.display === "block"
+            )
+              elLink.nextElementSibling.style.display = "none";
+            [].forEach.call(elLink.nextElementSibling.childNodes, function (
+              siblingChild
+            ) {
+              siblingChild.addEventListener("click", function () {
+                siblingChild.parentNode.style.display = "none";
+                if (elLink.classList.contains("is-active"))
+                  elLink.classList.toggle("is-active");
+              });
+            });
+          });
+          elLink.nextElementSibling.addEventListener("mouseleave", function () {
+            elLink.nextElementSibling.style.display = "none";
+            if (elLink.classList.contains("is-active"))
+              elLink.classList.toggle("is-active");
+          });
+        }
+      });
+    }
+  });
+</script>
