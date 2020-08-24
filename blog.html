@@ -1,0 +1,50 @@
+---
+layout: default
+title: "Blog"
+permalink: /blog/
+---
+
+<div class="content">
+  {% for post in site.posts %}
+  {% if post.layout=="post" %}
+    <div class="box radius-is-small">
+      <article class="media">
+        <div class="media-content">
+          <div class="columns">
+            <div class="column is-11">
+              <h3 class="is-size-4">
+                <a href="{{ post.url }}" style="color: black;">{{ post.title }}</a>
+              </h3>
+              <p class="subtitle is-6">by @{{post.author}}</p>
+              
+              {% if post.descr %}
+                <p>{{post.descr}}</p>
+              {% endif %}
+                
+                {% if post.tags %}
+                {% for tag in post.tags %}
+                <span class="tag is-light">{{tag}}</span>
+              {% endfor %}
+                {% endif %}
+                    
+              
+            </div>
+            <div class="column">
+              <br>
+              <a href="{{post.url}}" class="button is-text">
+                <ion-icon
+                name="arrow-forward-circle-outline"
+                style="font-size: 40px;"
+              ></ion-icon>
+            </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    {% endif %}
+  {% endfor %}
+    
+    </div>
+  </div>
+</div>
