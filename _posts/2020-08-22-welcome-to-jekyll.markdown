@@ -1,6 +1,7 @@
 ---
 layout: post
 id: 1
+author: system
 title:  "Welcome to Jekyll!"
 date:   2020-08-22 19:21:39 +0200
 tags: "Template", "Jekyll"
