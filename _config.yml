@@ -16,7 +16,7 @@ plugins:
 
 # pagination config
 paginate: 10
-paginate_path: "/blog/:id/"
+paginate_path: "/en/blog/:id/"
 
 # markdown settings
 markdown: kramdown
